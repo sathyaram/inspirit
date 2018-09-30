@@ -1,0 +1,24 @@
+{
+  "name": "inspirit",
+  "version": "1.0.0",
+  "description": "A Web inspiration visual application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sathyaram/inspirit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sathyaram/inspirit/issues"
+  },
+  "homepage": "https://github.com/sathyaram/inspirit#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "hbs": "^4.0.1"
+  }
+}

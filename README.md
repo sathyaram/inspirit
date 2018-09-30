@@ -2,11 +2,18 @@
 A Web inspiration visual application
 
 ## Overview
-A place to save the cool websites you find on the web. Users experience an interface where they can save their interesting links/sites that they find on the web, keep detailed notes and tags on these links, and have a visual medium to browse them on. 
+A place to save the cool websites you find on the web. Users experience an interface where they can save their interesting links/sites that they find on the web, keep detailed notes and tags on these links, and have a visual medium to browse them on.
 
 ## Features
 - Projects can be tagged, with multiple tags
 - Projects can be categorized
+
+## Routes
+- Path: / - Method: GET - Action: #index - Desc: Shows All Grid Items
+- Path: /new - Method: GET - Action: #new - Desc: Get Form to Create Grid Item
+- Path: /item - Method: POST - Action: #create - Desc: Create new item in DB
+- Path: /item/:id - Method: PATCH/PUT - Action: #update - Desc: Update data for Item
+- Path: /item/:id - Method: DELETE - Action: #delete - Desc: Delete data for item
  
 ## Technologies
 - HTML
