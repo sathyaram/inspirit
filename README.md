@@ -1,4 +1,4 @@
-# inspir/interspired
+# inspirit
 A Web inspiration visual application
 
 ## Overview
@@ -24,7 +24,7 @@ A place to save the cool websites you find on the web. Users experience an inter
 - Handlebars
 - Body Parser
 - Node
-- Passport
+- OAuth
 
 ### User Story
 1. User enters website, sees splash page
@@ -51,4 +51,8 @@ Nice to Have - User is able to categorize/search/by tag for items in grid
     - Tags
     - Description
     - Color (RGB) (Use HTML5 Color Picker)
+    - User
+- Filter
+    - Tags
+    - Item
     - User
