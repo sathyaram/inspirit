@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
 const parser = require('body-parser')
-const createItem = require('./routes/createitem');
 const getIndex = require('./routes/getindex');
+const createItem = require('./routes/createitem');
 
 app.set('view engine', 'hbs')
 app.use(parser.urlencoded({ extended: true }));

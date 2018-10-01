@@ -1,2 +1,17 @@
 {{!-- Homepage --}}
-<h1>Hello World</h1>
+{{#if items}}
+<ul>
+    {{#each items}}
+    <li style="background: {{ color }}">
+        <div onclick="someJsFunction();" class="title">{{ title }} </div>
+        <a target="_blank" href="{{ link }}">{{ link }}</a>
+    </li>
+    {{/each}}
+</ul>
+{{/if}}
+
+<input type="text" name="titlefield" id="titlefield">
+<input type="text" name="linkfield" id="linkfield">
+<input id="colorpicker" type="color" name="favcolor" value="#7ad1e1">
+<button onclick="submitItem();">Submit</button>
+    
