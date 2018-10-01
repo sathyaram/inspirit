@@ -10,10 +10,24 @@
     <title>Inspirit</title>
 </head>
 <body>
-    <nav>
-        <h1>Inspir<span>it</span></h1>
-    </nav>
+    <header>
+        <h1>Inspir.<span>it</span></h1><h2>Your Web, In One Place</h2>
+        
+        
+        <form id="itemform" action="" method="post">
+            <h3>Create A New It.em</h3>
+            <input type="text" placeholder="Website Title" name="titlefield" id="titlefield">
+            <br>
+            <input type="text" placeholder="Website Link" name="linkfield" id="linkfield">
+            <br>
+            <input type="color" id="colorpicker" name="favcolor" value="#7ad1e1">
+            <br>
+            <button onclick="submitItem();">Submit</button>
+        </form>
+    </header>
+    <main>
     {{{ body }}}
+    </main>
     <script src="js/scripts.js"></script>
 </body>
 </html>

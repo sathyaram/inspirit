@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
         tags: ["web", "design", "sexy"],
         description: "A nice portfolio",
         user: "sathyaram",
-        color: "limegreen"
+        color: "lightgreen"
     },
     {
         title: "Tobias Anhlin",
@@ -18,7 +18,15 @@ router.get('/', (req, res) => {
         tags: ["product", "designer", "minecraft"],
         description: "a digital builder",
         user: "sathyaram",
-        color: "magenta"
+        color: "orchid"
+    },
+    {
+        title: "Tobias Anhlin",
+        link: "http://tobiasanhlin.com",
+        tags: ["product", "designer", "minecraft"],
+        description: "a digital builder",
+        user: "sathyaram",
+        color: "coral"
     }
     ]
     res.render('index', { items });
