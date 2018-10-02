@@ -6,10 +6,13 @@ const createItem = require('./routes/createitem');
 
 app.set('view engine', 'hbs')
 app.use(parser.urlencoded({ extended: true }));
+app.use(parser.json());
 app.use(express.static(__dirname + '/public'));
+
 
 // Registering configured route
 app.use(getIndex);
 app.use(createItem);
+
 
 app.listen(8008, () => console.log("Im working"));

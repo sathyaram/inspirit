@@ -7,12 +7,12 @@ document.querySelector('#itemform').addEventListener("submit", function(e) {
     const newItem = {
         title: e.target[0].value,
         link: e.target[1].value,
-        tag: e.target[2].value,
+        tags: e.target[2].value,
         description: e.target[3].value,
         color: e.target[4].value
     }
     console.log(newItem);
-    // Call Fetch Method, on this port, Post request
+    // Call Fetch Method, on this port, Post request to Express Route(Async)
     fetch("http://localhost:8008/item", {
         method: "POST",
         headers: {
@@ -20,9 +20,10 @@ document.querySelector('#itemform').addEventListener("submit", function(e) {
         },
         body: JSON.stringify(newItem),
     })
+    // After info is in DB, data is sent back then jsonified
     .then(response => {
         console.log(response)
-        const responseBody = response.json().then(res => {
+        response.json().then(res => {
             console.log(res);
         });
     })
