@@ -91,6 +91,10 @@ h1 span {
     font-weight:bold;
 }
 
+ul {
+    transition: all 300ms ease-in-out;
+}
+
 li {
     height:40vh;
     opacity:1;
