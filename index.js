@@ -10,5 +10,6 @@ app.use(express.static(__dirname + '/public'));
 
 // Registering configured route
 app.use(getIndex);
+app.use(createItem);
 
 app.listen(8008, () => console.log("Im working"));

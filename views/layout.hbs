@@ -11,8 +11,8 @@
 </head>
 <body>
     <header>
-        <h1>Inspir.<span>it</span></h1><h2>Your Web, In One Place</h2>
-        
+        <h1>Inspir.<span>it</span></h1>
+        <h2>Your Web, In One Place</h2>
         
         <form id="itemform" action="" method="post">
             <h3>Create A New It.em</h3>
@@ -22,11 +22,11 @@
             <br>
             <input type="text" placeholder="Tags" name="tagfield" id="tagfield">
             <br>
+            <textarea id="descriptionfield"></textarea>
+            <br>
             <input type="color" id="colorpicker" name="colorpicker" value="#7ad1e1" alt-text="Pick A Color">
             <br>
-            <textarea></textarea>
-            <br>
-            <button onclick="submitItem();">Submit</button>
+            <button id="submititem">Submit</button>
         </form>
     </header>
     <main>
