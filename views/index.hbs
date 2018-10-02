@@ -9,6 +9,10 @@
             <div class="tags">{{ tags }}</div>
             <div class="desc">{{ description }}</div>
         </a>
+        <div class="controls">
+            <button class="edit" data-id="{{ id }}">Edit</button>
+            <button class="delete" data-id="{{ id }}">Delete</button>
+        </div>
     </li>
     {{/each}}
 </ul>
