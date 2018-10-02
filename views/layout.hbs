@@ -6,28 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600" rel="stylesheet">
-    <title>Inspirit</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>  
+    <title>Inspirit: Web Inspiration</title>
 </head>
 <body>
     <header>
-        <h1>Inspir.<span>it</span></h1>
-        <h2>Your Web, In One Place</h2>
-        
-        <form id="itemform" action="" method="post">
-            <h3>Create A New It.em</h3>
-            <input type="text" placeholder="Title" name="titlefield" id="titlefield">
-            <br>
-            <input type="text" placeholder="Link" name="linkfield" id="linkfield">
-            <br>
-            <input type="text" placeholder="Tags" name="tagfield" id="tagfield">
-            <br>
-            <textarea id="descriptionfield"></textarea>
-            <br>
-            <input type="color" id="colorpicker" name="colorpicker" value="#7ad1e1" alt-text="Pick A Color">
-            <br>
-            <button id="submititem">Submit</button>
-        </form>
+        <img src="images/it.svg" id="logo" alt-text="logo"/>
+        <div class="header-wrapper">
+            <h1>Inspir.<span>it</span></h1>
+            <h2>Your Web, In One Place</h2>
+            <form id="itemform" action="" method="post">
+                <h3>Create A New It.em</h3>
+                <div class="top-text">
+                <input type="text" placeholder="Title" name="titlefield" id="titlefield">
+                <input type="text" placeholder="Link" name="linkfield" id="linkfield">
+                </div>
+                <input type="text" placeholder="Tags - Seperate with commas" name="tagfield" id="tagfield">
+                <br>
+                <textarea placeholder="Description" id="descriptionfield"></textarea>
+                <br>
+                <input type="color" id="colorpicker" name="colorpicker" value="#7ad1e1" alt-text="Pick A Color">
+                <br>
+                <button id="submititem">Submit</button>
+            </form>
+        </div>
+        <button id="moveitin">←</button>
     </header>
     <main>
     {{{ body }}}

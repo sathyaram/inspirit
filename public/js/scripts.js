@@ -14,6 +14,17 @@ function makeListItem(item) {
     unorderedList.appendChild(listItem);
 }
 
+// Move It In Arrow
+$(function() {
+    $("#moveitin").click(function() {
+        $(this).toggleClass("active");
+        $('body').toggleClass("nav-open");
+        $('.header-wrapper').fadeToggle(500);
+        //$('#logo').fadeToggle(500);
+    })
+})
+
+
 // Ajax Request
 document.querySelector('#itemform').addEventListener("submit", function(e) {
     e.preventDefault();
