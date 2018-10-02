@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <img src="images/it.svg" id="logo" alt-text="logo"/>
+        <a href="/"><img src="images/it.svg" id="logo" alt-text="logo"/></a>
         <div class="header-wrapper">
             <h1>Inspir.<span>it</span></h1>
             <h2>Your Web, In One Place</h2>
@@ -23,13 +23,14 @@
                 <input type="text" placeholder="Title" name="titlefield" id="titlefield">
                 <input type="text" placeholder="Link" name="linkfield" id="linkfield">
                 </div>
-                <input type="text" placeholder="Tags - Seperate with commas" name="tagfield" id="tagfield">
-                <br>
+                <div class="tagscolor">
+                    <input type="text" placeholder="Tags - Seperate with commas" name="tagfield" id="tagfield">
+                    <input type="color" id="colorpicker" name="colorpicker" value="#7ad1e1" alt-text="Pick A Color">                
+                </div>
                 <textarea placeholder="Description" id="descriptionfield"></textarea>
                 <br>
-                <input type="color" id="colorpicker" name="colorpicker" value="#7ad1e1" alt-text="Pick A Color">
-                <br>
                 <button id="submititem">Submit</button>
+                <div class="submit-message"></div>
             </form>
         </div>
         <button id="moveitin">←</button>
