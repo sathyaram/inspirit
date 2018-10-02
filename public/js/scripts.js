@@ -11,7 +11,7 @@ function makeListItem(item) {
         </a>
     </li>
     `
-    unorderedList.appendChild(listItem);
+    unorderedList.insertAdjacentHTML( 'afterbegin', listItem );
 }
 
 // Move It In Arrow
@@ -33,8 +33,8 @@ document.querySelector('#itemform').addEventListener("submit", function(e) {
         title: e.target[0].value,
         link: e.target[1].value,
         tags: e.target[2].value,
-        description: e.target[3].value,
-        color: e.target[4].value
+        color: e.target[3].value,
+        description: e.target[4].value
     }
     console.log(newItem);
     // Call Fetch Method, on this port, Post request to Express Route(Async)
@@ -49,8 +49,8 @@ document.querySelector('#itemform').addEventListener("submit", function(e) {
     .then(response => {
         console.log(response)
         response.json().then(res => {
-            if (res.ok) {
-                makeListItem();
+            if (response.status == 200) {
+                makeListItem(res.item);
             } else alert('Error adding item');
         });
     })

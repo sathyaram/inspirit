@@ -12,8 +12,8 @@ router.post('/item', (req, res) => {
         description: req.body.description,
         color: req.body.color
     }
-    Item.create(parsedItem).then(item => res.json({ ok: true }))
-    .catch(err => res.json({ ok: false }))
+    Item.create(parsedItem).then(item => res.status(200).json({ item: parsedItem }))
+    .catch(err => res.status(500))
 })
 
 module.exports = router;
