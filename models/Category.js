@@ -1,7 +1,7 @@
 const mongoose = require('../db/connection')
 const Schema = mongoose.Schema;
 
-const Group = new Schema({
+const Category = new Schema({
     name: String,
     items: [
       {
@@ -12,5 +12,5 @@ const Group = new Schema({
 })
 
 module.exports = {
-  Group: mongoose.model("Group", Group)
+  Category: mongoose.model("Category", Category)
 }

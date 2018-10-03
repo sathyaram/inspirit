@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const Item = new Schema({
     title: String,
     link: String,
-    tags: [String],
     description: String,
     color: String,
     author: {
