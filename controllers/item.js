@@ -1,7 +1,7 @@
 const { Item } = require("../models/Item");
-const User = require("../models/User");
 
 function transformItem(rawItem) {
+    console.log(rawItem);
     const parsedTags = rawItem.tags.split(",");
     const parsedItem = {
       title: rawItem.title,
@@ -21,7 +21,7 @@ module.exports = {
       .catch(err => res.status(500).end());
   },
   update: (req, res) => {
-      console.log(req.body);
+      console.log(req.body, '@@@@');
       Item.findOneAndUpdate({ _id: req.params.id }, transformItem(req.body)).then(item => {
         res.json({});
       })

@@ -4,14 +4,14 @@
     {{#each items}}
     <li>
         <a class="website-wrapper" target="_blank" style="background: {{ color }}" href="{{ link }}"></a>
-        <form class="text-wrapper">
+        <div class="text-wrapper">
             <input class="title" value="{{ title }}">
             <input class="link" value="{{ link }}">
             <input class="tags" value="{{ tags }}">
             <textarea class="desc" value="">{{ description }}</textarea>
             <input class="color" type="color" name="colorpicker" value="{{ color }}">
             <button type="submit" class="save" data-id="{{ id }}">Save</button>
-        </form>
+        </div>
         <div class="controls">
             <button class="edit" data-id="{{ id }}">Edit</button>
             <button class="delete" data-id="{{ id }}">Delete</button>

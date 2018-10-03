@@ -6,14 +6,14 @@ function makeListItem(item) {
   const listItem = `
     <li>
         <a class="website-wrapper" target="_blank" style="background:${item.color}" href="${item.link}"></a>
-          <form class="text-wrapper">
+          <div class="text-wrapper">
             <input class="title" value="${item.title}">
             <input class="link" value="${item.link}">
             <input class="tags" value="${item.tags}">
             <textarea class="desc" value="">${item.description}</textarea>
             <input class="color" type="color" name="colorpicker" value="${ item.color }">
             <button type="submit" class="save" data-id="${ item._id }">Save</button>
-          </form>
+          </div>
         <div class="controls">
             <button class="edit" data-id="${item._id}">Edit</button>
             <button class="delete" data-id="${item._id}">Delete</button>
@@ -76,43 +76,45 @@ $(function() {
   }));
 
   // Adds Event Lister to Form Within Item so target values become available
-  document.querySelector(".text-wrapper").addEventListener("submit", function(e) {
-    e.preventDefault();
+  $("body").on("click", "button.save", (function(e) {
 
     const updatedItem = {
-        title: e.target[0].value,
-        link: e.target[1].value,
-        tags: e.target[2].value,
-        description: e.target[3].value,
-        color: e.target[4].value
+        title: e.target.parentElement.querySelector('.title').value,
+        link: e.target.parentElement.querySelector('.link').value,
+        tags: e.target.parentElement.querySelector('.tags').value,
+        description: e.target.parentElement.querySelector('.desc').value,
+        color: e.target.parentElement.querySelector('.color').value,
     }
-    console.log(updatedItem);
-    fetch(`http://localhost:8008/item/${e.target[5].getAttribute("data-id")}`, {
+    console.log(updatedItem)
+    fetch(`http://localhost:8008/item/${e.target.getAttribute("data-id")}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(updatedItem)
+      body: JSON.stringify(updatedItem) 
     })
       .then(response => {
         console.log(response);
-        response.json().then(res => {
-            if (response.status == 200) {
-            $(this).siblings('.website-wrapper').css("background", e.target[4].value); 
-            } else alert(err);
+        response.json().then(res => { 
+            if (response.status == 200) { 
+              $(this).parent().siblings('.website-wrapper').css("background", e.target.parentElement.querySelector('.color').value); 
+              $(this).parent(".text-wrapper").removeClass('pointerevents');
+              $(this).siblings("input.color").fadeOut();
+              $(this).fadeOut();
+            } else alert(err); 
           });
       })
       .catch(err => {
         console.log(err);
       });
-  })
+  }))
 
-  // Save Button for Item
-  $("button.save").click(function(e) {
-    $(this).parent(".text-wrapper").removeClass('pointerevents');
-    $(this).siblings("input.color").fadeOut();
-    $(this).fadeOut();
-  })
+  // // Save Button for Item
+  // $("button.save").click(function(e) {
+  //   $(this).parent(".text-wrapper").removeClass('pointerevents');
+  //   $(this).siblings("input.color").fadeOut();
+  //   $(this).fadeOut();
+  // })
   // Delete Button for Item
   $("body").on("click", "button.delete", function(e) {
     fetch(`http://localhost:8008/item/${e.target.getAttribute("data-id")}`, {
