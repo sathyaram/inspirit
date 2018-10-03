@@ -96,7 +96,7 @@ $(function() {
         console.log(response);
         response.json().then(res => {
             if (response.status == 200) {
-            $(this).parent().css("background", e.target[4].value); 
+            $(this).siblings('.website-wrapper').css("background", e.target[4].value); 
             } else alert(err);
           });
       })

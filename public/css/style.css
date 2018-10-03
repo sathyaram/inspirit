@@ -242,8 +242,8 @@ li {
   transition: all 300ms ease
 }
 
-li:hover a.website-wrapper {
-  opacity:0.7;
+li:hover a.website-wrapper:before {
+  opacity:1;
 }
 
 li:hover .controls {
@@ -267,7 +267,17 @@ a.website-wrapper {
   opacity: 1;
 }
 
-
+a.website-wrapper:before {
+  content:'';
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  transition: all 500ms ease;
+  background:rgba(0,0,0,0.4);
+  opacity:0;
+  z-index:0;
+}
 
 .text-wrapper {
   position: absolute;
@@ -294,22 +304,22 @@ a.website-wrapper {
   border: none;
   outline: none;
   text-align: center;
+  border-radius:10px;
   color: white;
+  transition: all 300ms ease;
+  border:1px solid transparent;
   text-shadow:0 0 15px rgba(0, 0, 0, 0.4);
   font-family: "Work Sans" !important;
 }
 
-.text-wrapper.pointerevents input {
+.text-wrapper.pointerevents input,
+.text-wrapper.pointerevents textarea {
   border: 1px solid paleturquoise;
 }
 
 .title {
   color: white;
   font-size: 32px;
-}
-
-.link {
-  padding-top: 10px;
 }
 
 h2 {
@@ -320,7 +330,7 @@ h2 {
 form#itemform {
   padding-top: 40px;
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
   margin:0 auto;
 }
 
@@ -385,7 +395,7 @@ input[type="text"] {
   opacity: 1;
 }
 
-input[type="color"] {
+input#colorpicker {
   padding: 7px 15px;
   background: none;
   height: 40px;
@@ -445,8 +455,25 @@ button#moveitin.active {
 
 button.save {
   display: none;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  border:none;
+  cursor:pointer;
+  padding:5px 10px;
+  background: white;
+  color: #00446e;
+  font-family: "Work Sans" !important;
+  transition: all 300ms ease;
+  border-radius:10px;
+  box-shadow:0 0 15px 0 rgba(0, 0, 0, 0.2);
 }
 
 input.color {
   display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 0 12px;
+  background: white;
 }
