@@ -1,4 +1,6 @@
 // For Random Javascript
+
+// Make the data of Item in the list
 function makeListItem(item) {
   const unorderedList = document.querySelector("#item-wrapper");
   const listItem = `
@@ -16,12 +18,6 @@ function makeListItem(item) {
     </li>
     `;
   unorderedList.insertAdjacentHTML("afterbegin", listItem);
-}
-
-function updateListItem(item) {
-    const textBoxes = `
-        
-    `
 }
 
 // Ajax Request
@@ -58,6 +54,7 @@ document.querySelector("#itemform").addEventListener("submit", function(e) {
 });
 
 // Button Click Functions
+
 $(function() {
   // Move It In Button
   $("#moveitin").click(function() {
@@ -70,22 +67,23 @@ $(function() {
   // Edit Button for Item
   $("button.edit").click(function(e) {
     $(this).parent().siblings(".text-wrapper").addClass('pointerevents');
-    $(this).parent().siblings(".text-wrapper").children("button.save").fadeToggle();
+    $(this).parent().siblings(".text-wrapper").children("button.save").fadeIn();
+    $(this).parent().siblings(".text-wrapper").children("input.color").fadeIn();
   });
 
-  // Save Button for Item
-  $("button.save").click(function(e) {
-    $(this).parent(".text-wrapper").removeClass('pointerevents');
+  // Adds Event Lister to Form Within Item so target values become available
+  document.querySelector(".text-wrapper").addEventListener("submit", function(e) {
+    e.preventDefault();
 
     const updatedItem = {
         title: e.target[0].value,
         link: e.target[1].value,
         tags: e.target[2].value,
-        color: e.target[3].value,
-        description: e.target[4].value
+        description: e.target[3].value,
+        color: e.target[4].value
     }
     console.log(updatedItem);
-    fetch(`http://localhost:8008/item/${e.target.getAttribute("data-id")}`, {
+    fetch(`http://localhost:8008/item/${e.target[5].getAttribute("data-id")}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -96,13 +94,20 @@ $(function() {
         console.log(response);
         response.json().then(res => {
             if (response.status == 200) {
-              makeListItem(res.item);
+            $(this).parent().css("background", e.target[4].value); 
             } else alert(err);
           });
       })
       .catch(err => {
         console.log(err);
       });
+  })
+
+  // Save Button for Item
+  $("button.save").click(function(e) {
+    $(this).parent(".text-wrapper").removeClass('pointerevents');
+    $(this).siblings("input.color").fadeOut();
+    $(this).fadeOut();
   })
   // Delete Button for Item
   $("body").on("click", "button.delete", function(e) {

@@ -330,5 +330,9 @@ button#moveitin.active {
 }
 
 button.save {
-    display:none
+    display:none;
+}
+
+input.color {
+    display:none;
 }
