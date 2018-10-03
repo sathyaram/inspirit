@@ -63,7 +63,7 @@ $(function() {
   $("#moveitin").click(function() {
     $(this).toggleClass("active");
     $("body").toggleClass("nav-open");
-    $(".header-wrapper").fadeToggle(500);
+    $(".header-wrapper").fadeToggle(100);
     //$('#logo').fadeToggle(500);
   });
 
