@@ -52,7 +52,7 @@ Nice to Have - User is able to categorize/search/by tag for items in grid
     - Description
     - Color (RGB) (Use HTML5 Color Picker)
     - User
-- Filter
-    - Tags
-    - Item
+- Groupings
+    - Name
     - User
+    - Item

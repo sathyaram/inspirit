@@ -165,7 +165,7 @@ header {
   z-index: 10;
   transition: all 300ms ease;
   background-image: linear-gradient(
-    to right top,
+    to right bottom,
     #05429f,
     #0059b7,
     #0071ce,
@@ -218,7 +218,7 @@ ul {
   position: absolute;
   bottom: 10px;
   right:10px;
-  transform:translateY(110px);
+  transform:translateY(50px);
   z-index: 12;
   transition: all 500ms ease;
 }
@@ -313,9 +313,9 @@ a.website-wrapper:before {
   font-family: "Work Sans" !important;
 }
 
-.text-wrapper input[value=""], .text-wrapper textarea:empty {
+/* .text-wrapper input[value=""], .text-wrapper textarea:empty {
   display:none;
-}
+} */
 
 .text-wrapper.pointerevents input:not([type="color"]),
 .text-wrapper.pointerevents textarea {
@@ -324,10 +324,10 @@ a.website-wrapper:before {
   padding:4px 10px;
 }
 
-.text-wrapper.pointerevents input[value=""], 
+/* .text-wrapper.pointerevents input[value=""], 
 .text-wrapper.pointerevents textarea:empty {
   display:block;
-}
+} */
 
 .title {
   color: white;
@@ -469,7 +469,6 @@ button#moveitin {
   background: transparent;
   border: none;
   display: inline-block;
-  padding: 10px 0;
   font-size: 26px;
   transform: rotate(0deg);
 }

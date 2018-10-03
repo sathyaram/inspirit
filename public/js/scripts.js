@@ -5,14 +5,15 @@ function makeListItem(item) {
   const unorderedList = document.querySelector("#item-wrapper");
   const listItem = `
     <li>
-        <a class="website-wrapper" target="_blank" style="background: ${item.color}" href="${item.link}">
+        <a class="website-wrapper" target="_blank" style="background:${item.color}" href="${item.link}"></a>
           <form class="text-wrapper">
             <input class="title" value="${item.title}">
             <input class="link" value="${item.link}">
             <input class="tags" value="${item.tags}">
             <textarea class="desc" value="">${item.description}</textarea>
+            <input class="color" type="color" name="colorpicker" value="${ item.color }">
+            <button type="submit" class="save" data-id="${ item._id }">Save</button>
           </form>
-        </a>
         <div class="controls">
             <button class="edit" data-id="${item._id}">Edit</button>
             <button class="delete" data-id="${item._id}">Delete</button>
@@ -67,11 +68,12 @@ $(function() {
   });
 
   // Edit Button for Item
-  $("button.edit").click(function(e) {
+  $("body").on("click", "button.edit", (function(e) {
+    console.log(this);
     $(this).parent().siblings(".text-wrapper").addClass('pointerevents');
     $(this).parent().siblings(".text-wrapper").children("button.save").fadeIn();
     $(this).parent().siblings(".text-wrapper").children("input.color").fadeIn();
-  });
+  }));
 
   // Adds Event Lister to Form Within Item so target values become available
   document.querySelector(".text-wrapper").addEventListener("submit", function(e) {
