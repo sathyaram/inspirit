@@ -13,7 +13,7 @@ require('./config/passport')(passport)
 // Initialize Passport, used everytime you make a request
 app.use(passport.initialize())
 // Passport is going to be in charge of handling sessions
-app.use(passort.session())
+app.use(passport.session())
 
 // Registering configured route
 app.use(require("./routes/index.js"));
