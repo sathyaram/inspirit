@@ -32,7 +32,12 @@
                     <input type="text" placeholder="Link" name="linkfield" id="linkfield">
                 </div>
                 <div class="categorycolor">
-                    <input type="text" placeholder="Category" name="categoryfield" id="categoryfield">
+                    <input type="text" list="cats" placeholder="Category" name="categoryfield" id="categoryfield">
+                    <datalist id="cats">
+                        {{#each categories }}
+                            <option value="{{ name }}">
+                        {{/each}}
+                    </datalist>
                     <input type="color" id="colorpicker" name="colorpicker" value="#7ad1e1" alt-text="Pick A Color">
                 </div>
                 <textarea placeholder="Describe what makes it dope" id="descriptionfield"></textarea>

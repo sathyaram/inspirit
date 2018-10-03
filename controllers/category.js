@@ -1,5 +1,5 @@
 const { Item } = require("../models/Item");
-const { Category} = require("../models/Category")
+const { Category } = require("../models/Category")
 
 module.exports = {
   create: (req, res) => {

@@ -391,7 +391,7 @@ h3 {
   float: left;
 }
 
-input[type="text"] {
+form#itemform input[type="text"] {
   height: 40px;
   padding: 10px 15px;
   font-size: 16px;

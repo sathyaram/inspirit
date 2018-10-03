@@ -9,7 +9,7 @@ function makeListItem(item) {
           <div class="text-wrapper">
             <input class="title" value="${item.title}">
             <input class="link" value="${item.link}">
-            <input class="tags" value="${item.tags}">
+            <input class="category" value="${item.category}">
             <textarea class="desc" value="">${item.description}</textarea>
             <input class="color" type="color" name="colorpicker" value="${ item.color }">
             <button type="submit" class="save" data-id="${ item._id }">Save</button>
@@ -30,7 +30,7 @@ document.querySelector("#itemform").addEventListener("submit", function(e) {
   const newItem = {
     title: e.target[0].value,
     link: e.target[1].value,
-    tags: e.target[2].value,
+    category: e.target[2].value,
     color: e.target[3].value,
     description: e.target[4].value
   };
@@ -81,7 +81,7 @@ $(function() {
     const updatedItem = {
         title: e.target.parentElement.querySelector('.title').value,
         link: e.target.parentElement.querySelector('.link').value,
-        tags: e.target.parentElement.querySelector('.tags').value,
+        category: e.target.parentElement.querySelector('.category').value,
         description: e.target.parentElement.querySelector('.desc').value,
         color: e.target.parentElement.querySelector('.color').value,
     }
