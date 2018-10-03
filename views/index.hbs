@@ -2,13 +2,13 @@
 {{#if items}}
 <ul id="item-wrapper">
     {{#each items}}
-    <li style="background: {{ color }}">
-        <a class="website-wrapper" target="_blank" href="{{ link }}"></a>
+    <li>
+        <a class="website-wrapper" target="_blank" style="background: {{ color }}" href="{{ link }}"></a>
         <form class="text-wrapper">
             <input class="title" value="{{ title }}">
             <input class="link" value="{{ link }}">
             <input class="tags" value="{{ tags }}">
-            <input class="desc" value="{{ description }}">
+            <textarea class="desc" value="">{{ description }}</textarea>
             <input class="color" type="color" name="colorpicker" value="{{ color }}">
             <button type="submit" class="save" data-id="{{ id }}">Save</button>
         </form>

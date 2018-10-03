@@ -9,11 +9,11 @@ app.use(parser.json());
 app.use(express.static(__dirname + '/public'));
 
 // Requires the config/passport file
-require('./config/passport')(passport)
-// Initialize Passport, used everytime you make a request
-app.use(passport.initialize())
-// Passport is going to be in charge of handling sessions
-app.use(passport.session())
+// require('./config/passport')(passport)
+// // Initialize Passport, used everytime you make a request
+// app.use(passport.initialize())
+// // Passport is going to be in charge of handling sessions
+// app.use(passport.session())
 
 // Registering configured route
 app.use(require("./routes/index.js"));

@@ -4,12 +4,14 @@
 function makeListItem(item) {
   const unorderedList = document.querySelector("#item-wrapper");
   const listItem = `
-    <li style="background: ${item.color}">
-        <a class="website-wrapper" target="_blank" href="${item.link}">
+    <li>
+        <a class="website-wrapper" target="_blank" style="background: ${item.color}" href="${item.link}">
+          <form class="text-wrapper">
             <input class="title" value="${item.title}">
             <input class="link" value="${item.link}">
             <input class="tags" value="${item.tags}">
-            <input class="desc" value="${item.description}">
+            <textarea class="desc" value="">${item.description}</textarea>
+          </form>
         </a>
         <div class="controls">
             <button class="edit" data-id="${item._id}">Edit</button>
