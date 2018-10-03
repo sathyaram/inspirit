@@ -149,12 +149,45 @@ li:hover {
 a.website-wrapper {
     height:100%;
     width:100%;
-    display:block;
     display:flex;
     align-items:center;
     justify-content: center;
     flex-direction: column;
     color:white;
+    position:relative;
+}
+
+.text-wrapper {
+    position: absolute;
+    z-index: 12;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    pointer-events: none;
+}
+
+.pointerevents {
+    pointer-events: auto;
+}
+
+.text-wrapper input {
+    background: none;
+    border: none;
+    outline: none;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 4px rgba(0,0,0,0.7);
+    font-family: 'Work Sans' !important;
+}
+
+.text-wrapper.pointerevents input {
+    border:1px solid paleturquoise;
 }
 
 .title {
@@ -294,4 +327,8 @@ button#moveitin {
 
 button#moveitin.active {
     transform:rotate(180deg);
+}
+
+button.save {
+    display:none
 }
