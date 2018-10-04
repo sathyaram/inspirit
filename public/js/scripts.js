@@ -43,7 +43,7 @@ $("#deletecategory").click(function(e) {
   if (!isMatch) {
     return;
   }
-  fetch(`http://localhost:8008/category/${categoryToDelete}`, {
+  fetch(`https://inspir-it.herokuapp.com//category/${categoryToDelete}`, {
     method: "DELETE"
   })
     .then(response => {
@@ -128,7 +128,7 @@ document.querySelector("#itemform").addEventListener("submit", function(e) {
   };
   console.log(newItem);
   // Call Fetch Method, on this port, Post request to Express Route(Async)
-  fetch("http://localhost:8008/item", {
+  fetch("https://inspir-it.herokuapp.com/item", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -179,7 +179,7 @@ $(function() {
       color: e.target.parentElement.querySelector(".color").value
     };
     console.log(updatedItem);
-    fetch(`http://localhost:8008/item/${e.target.getAttribute("data-id")}`, {
+    fetch(`https://inspir-it.herokuapp.com/item/${e.target.getAttribute("data-id")}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -204,7 +204,7 @@ $(function() {
 
   // Delete Button for Item
   $("body").on("click", "button.delete", function(e) {
-    fetch(`http://localhost:8008/item/${e.target.getAttribute("data-id")}`, {
+    fetch(`https://inspir-it.herokuapp.com/item/${e.target.getAttribute("data-id")}`, {
       method: "DELETE"
     })
       .then(response => {
