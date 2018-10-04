@@ -563,6 +563,10 @@ input.color {
   z-index:15;
 }
 
+.nav-open #filter {
+  width: calc(100% - 80px);
+}
+
 input#categoryfilter {
   border: none;
   margin: 0;
@@ -578,6 +582,10 @@ input#categoryfilter {
   height: 38px;
   background: lightskyblue;
   font-family: "Work Sans" !important;
+}
+
+.nav-open #collapser {
+  text-align:center;
 }
 
 /*----Media Queries----*/
@@ -621,7 +629,7 @@ input#categoryfilter {
   }
 
   li {
-    width: 50%;
+    width: 50% !important;
   }
 
   button#moveitin {
