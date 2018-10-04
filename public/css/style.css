@@ -186,12 +186,6 @@ header {
   box-shadow: 3px 0px 25px 0px rgba(0, 0, 0, 0.1);
 }
 
-#branding,
-#header-wrapper,
-#collapser {
-  /* text-align:center; */
-}
-
 main {
   margin-left: 50%;
   width: 50%;
@@ -332,7 +326,7 @@ a.website-wrapper:before {
 .text-wrapper.pointerevents input:not([type="color"]),
 .text-wrapper.pointerevents textarea {
   border: 1px solid paleturquoise;
-  margin-top: 10px;
+  margin-top: 5px;
   padding:4px 10px;
 }
 
@@ -343,16 +337,27 @@ a.website-wrapper:before {
 
 .title {
   color: white;
-  font-size: 26px;
+  font-size: 34px;
+  font-weight:300;
 }
 
 .link {
-  font-weight:700;
   font-size:16px;
+  font-weight:700;
 }
 
 .category {
+  background: rgba(255,255,255,0.2) !important;
+  color: white;
+  position: absolute;
+  top: 10px;
+  left:50%;
+  padding: 2px 0px 2px 15px !important;
+  transform:translateX(-50%);
+}
 
+.category[value=""]{
+  background: rgba(255,255,255,0) !important;
 }
 
 .desc {
@@ -362,6 +367,7 @@ a.website-wrapper:before {
 h2 {
   padding-top: 15px;
   color: white;
+  font-weight: 300;
 }
 
 form#itemform {
@@ -372,7 +378,7 @@ form#itemform {
 
 h3 {
   color: white;
-  font-size: 22px;
+  font-size: 20px;
   padding-bottom: 10px;
 }
 
@@ -407,6 +413,7 @@ form#itemform input[type="text"] {
   border-radius: 10px;
   color: white;
   font-family: "Work Sans" !important;
+  font-weight: 300;
 }
 
 form#itemform:after {
@@ -472,6 +479,7 @@ textarea#descriptionfield {
   padding: 10px 15px;
   font-size: 16px;
   font-family: "Work Sans" !important;
+  font-weight: 300;
 }
 
 button#submititem {
@@ -622,6 +630,26 @@ input#categoryfilter {
 
   .nav-open button#moveitin {
     transform:rotate(270deg);
+  }
+
+  #branding,
+  #header-wrapper,
+  #collapser {
+    text-align:center;
+  }
+
+  form#itemform {
+    margin:0 auto;
+  }
+
+  #filter {
+    width:100%;
+    position:absolute;
+  }
+
+  button#submititem,
+  #submit-message {
+    float:none;
   }
 }
 
