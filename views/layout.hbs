@@ -52,7 +52,12 @@
     </header>
     <main>
         <div id="filter">
-            <input text="text" id="categoryfilter" placeholder="Filter by Category" list="cats">
+            <input type="text" id="categoryfilter" placeholder="Filter by Category" list="cats">
+            {{!-- <select id="categoryfilter" placeholder="Filter by Category" list="cats">
+                {{#each categories }}
+                    <option value="{{ name }}">{{ name }}</option>
+                {{/each}}
+            </select> --}}
             <button id="deletecategory">Delete Category</button>
         </div>
         {{{ body }}}
