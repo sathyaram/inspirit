@@ -35,8 +35,8 @@
                     <input type="text" list="cats" placeholder="Category" name="categoryfield" id="categoryfield">
                     <datalist id="cats">
                         {{#each categories }}
-                            <option value="{{ name }}">
-                        {{/each}}
+                        <option value="{{ name }}">
+                            {{/each}}
                     </datalist>
                     <input type="color" id="colorpicker" name="colorpicker" value="#7ad1e1" alt-text="Pick A Color">
                 </div>
@@ -51,6 +51,10 @@
         </div>
     </header>
     <main>
+        <div id="filter">
+            <input text="text" id="categoryfilter" placeholder="Filter by Category" list="cats">
+            <button id="deletecategory">Delete Category</button>
+        </div>
         {{{ body }}}
     </main>
     <script src="js/scripts.js"></script>

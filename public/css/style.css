@@ -133,6 +133,10 @@ table {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.nodisplay{
+  display:none;
+}
+
 /*---My Styles---*/
 
 body {
