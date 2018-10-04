@@ -25,12 +25,14 @@ $("#categoryfilter").on("input", function(e) {
   filterItems(e.target.value);
 });
 
+// Verifying deletion of valid category, then a fetch to delete it on the server
 $("#deletecategory").click(function(e) {
   // get value of the input
   const categoryToDelete = $("#categoryfilter").val();
   // verify the value of the input is a valid value via datalist
   const datalist = $("#cats").children();
 
+  // Validity checker
   var isMatch = false;
   for (let i = 0; i < datalist.length; i++) {
     if (datalist[i].value === categoryToDelete) {
@@ -59,19 +61,21 @@ $("#deletecategory").click(function(e) {
 
 // Removing Category on Frontend
 function removeCategory(categoryName) {
+  // Finding the data list item and removes
   $("#cats").children("option").attr("value", categoryName).remove();
 
   const itemWrapper = document.querySelector("#item-wrapper");
   const projectItems = itemWrapper.children;
-
+  // Goes through the list of items and strips category name
   for (let i = 0; i < projectItems.length; i++) {
     const category = projectItems[i].children[1].children[2].value;
     if (categoryName === category) {
       projectItems[i].children[1].children[2].value = "";
     }
   }
-
+  // Clears filter
   $("#categoryfilter").val("");
+  // Reseting display of the list items
   filterItems("");
 }
 
@@ -80,20 +84,14 @@ function makeListItem(item) {
   const unorderedList = document.querySelector("#item-wrapper");
   const listItem = `
     <li>
-        <a class="website-wrapper" target="_blank" style="background:${
-          item.color
-        }" href="${item.link}"></a>
+        <a class="website-wrapper" target="_blank" style="background:${item.color}" href="${item.link}"></a>
           <div class="text-wrapper">
             <input class="title" value="${item.title}">
             <input class="link" value="${item.link}">
             <input class="category" value="${item.category}">
             <textarea class="desc" value="">${item.description}</textarea>
-            <input class="color" type="color" name="colorpicker" value="${
-              item.color
-            }">
-            <button type="submit" class="save" data-id="${
-              item._id
-            }">Save</button>
+            <input class="color" type="color" name="colorpicker" value="${item.color}">
+            <button type="submit" class="save" data-id="${item._id}">Save</button>
           </div>
         <div class="controls">
             <button class="edit" data-id="${item._id}">Edit</button>
@@ -164,20 +162,9 @@ $(function() {
   // Edit Button for Item
   $("body").on("click", "button.edit", function(e) {
     console.log(this);
-    $(this)
-      .parent()
-      .siblings(".text-wrapper")
-      .addClass("pointerevents");
-    $(this)
-      .parent()
-      .siblings(".text-wrapper")
-      .children("button.save")
-      .fadeIn();
-    $(this)
-      .parent()
-      .siblings(".text-wrapper")
-      .children("input.color")
-      .fadeIn();
+    $(this).parent().siblings(".text-wrapper").addClass("pointerevents");
+    $(this).parent().siblings(".text-wrapper").children("button.save").fadeIn();
+    $(this).parent().siblings(".text-wrapper").children("input.color").fadeIn();
   });
 
   // Adds Event Lister to Form Within Item so target values become available
@@ -201,19 +188,9 @@ $(function() {
         console.log(response);
         response.json().then(res => {
           if (response.status == 200) {
-            $(this)
-              .parent()
-              .siblings(".website-wrapper")
-              .css(
-                "background",
-                e.target.parentElement.querySelector(".color").value
-              );
-            $(this)
-              .parent(".text-wrapper")
-              .removeClass("pointerevents");
-            $(this)
-              .siblings("input.color")
-              .fadeOut();
+            $(this).parent().siblings(".website-wrapper").css("background", e.target.parentElement.querySelector(".color").value);
+            $(this).parent(".text-wrapper").removeClass("pointerevents");
+            $(this).siblings("input.color").fadeOut();
             $(this).fadeOut();
           } else alert(err);
         });

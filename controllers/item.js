@@ -19,14 +19,14 @@ module.exports = {
         });
       } else {
         Item.create(req.body)
-            .then(item => res.status(200).json({ item: item }))
-            .catch(err => {
-              console.log(err);
-              res
-                .status(500)
-                .json({})
-                .end();
-            }); 
+          .then(item => res.status(200).json({ item: item }))
+          .catch(err => {
+            console.log(err);
+            res
+              .status(500)
+              .json({})
+              .end();
+          });
       }
     });
   },
