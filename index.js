@@ -12,8 +12,6 @@ app.use(parser.urlencoded({ extended: true }));
 app.use(parser.json());
 app.use(express.static(__dirname + '/public'));
 
-mongodb://<dbuser>:<dbpassword>@ds123173.mlab.com:23173/inspirit 
-
 // Requires the config/passport file
 // require('./config/passport')(passport)
 // // Initialize Passport, used everytime you make a request
