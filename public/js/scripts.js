@@ -147,6 +147,8 @@ document.querySelector("#itemform").addEventListener("submit", function(e) {
     .catch(err => {
       console.log(err);
     });
+    $(this)[0].reset();
+    $("#submit-message").fadeIn().delay(3000).fadeOut()
 });
 
 // Button Click Functions
