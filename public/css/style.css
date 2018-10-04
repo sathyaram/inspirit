@@ -605,7 +605,7 @@ input#categoryfilter {
   } */
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:800px) {
   body {
     flex-direction:column;
   }
@@ -637,7 +637,11 @@ input#categoryfilter {
   }
 
   li {
-    width: 50% !important;
+    width: 50%;
+  }
+
+  .nav-open li {
+    width:50%;
   }
 
   button#moveitin {
@@ -669,7 +673,7 @@ input#categoryfilter {
   }
 }
 
-@media screen and (max-width:520px) {
+@media screen and (max-width:620px) {
   .nav-open li {
     width:100%;
   }
