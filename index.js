@@ -24,10 +24,10 @@ app.use(itemRoutes);
 app.use(categoryRoutes);
 
 // Heroku
-app.set('port', process.env.PORT || 3001)
+app.set('port', process.env.PORT || 8008)
 
 app.listen(app.get('port'), () => {
-  console.log(`PORT: ${app.get('port')}`)
+  console.log('up and running')
 })
 
-app.listen(8008, () => console.log("Im working"));
+// app.listen(8008, () => console.log("Im working"));
