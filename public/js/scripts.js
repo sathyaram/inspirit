@@ -43,7 +43,7 @@ $("#deletecategory").click(function(e) {
   if (!isMatch) {
     return;
   }
-  fetch(`https://inspir-it.herokuapp.com//category/${categoryToDelete}`, {
+  fetch(`https://inspir-it.herokuapp.com/category/${categoryToDelete}`, {
     method: "DELETE"
   })
     .then(response => {
