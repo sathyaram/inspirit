@@ -1,35 +1,79 @@
 // For Random Javascript
-$("#categoryfilter").on("input", function(e) {
+// Function For Filtering Category searches on Items
+function filterItems(searchQuery) {
   const itemWrapper = document.querySelector("#item-wrapper");
   const projectItems = itemWrapper.children;
-  if (e.target.value === "") {
+  if (searchQuery === "") {
     for (let i = 0; i < projectItems.length; i++) {
       projectItems[i].style = "";
     }
     return;
   }
   for (let i = 0; i < projectItems.length; i++) {
-    const category = projectItems[i].children[1].children[2].value.toLowerCase();
-    if (e.target.value.toLowerCase() === category) {
+    const category = projectItems[
+      i
+    ].children[1].children[2].value.toLowerCase();
+    if (searchQuery.toLowerCase() === category) {
       projectItems[i].style = "";
     } else {
       projectItems[i].style = "display: none;";
     }
   }
+}
+
+$("#categoryfilter").on("input", function(e) {
+  filterItems(e.target.value);
 });
 
 $("#deletecategory").click(function(e) {
-  
-  const categoryToDelete = $("#categoryfilter").value;
-
-  console.log(categoryToDelete);
-
   // get value of the input
+  const categoryToDelete = $("#categoryfilter").val();
   // verify the value of the input is a valid value via datalist
-  // send fetch request the express server to delete from databse
-  // on succcess of deletion, remove from database and items
-  
-})
+  const datalist = $("#cats").children();
+
+  var isMatch = false;
+  for (let i = 0; i < datalist.length; i++) {
+    if (datalist[i].value === categoryToDelete) {
+      isMatch = true;
+      break;
+    }
+  }
+  if (!isMatch) {
+    return;
+  }
+  fetch(`http://localhost:8008/category/${categoryToDelete}`, {
+    method: "DELETE"
+  })
+    .then(response => {
+      if (response.status == 200) {
+        // on succcess of deletion, remove from database and items
+        removeCategory(categoryToDelete);
+      } else {
+        console.log(response);
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+// Removing Category on Frontend
+function removeCategory(categoryName) {
+  $("#cats").children("option").attr("value", categoryName).remove();
+
+  const itemWrapper = document.querySelector("#item-wrapper");
+  const projectItems = itemWrapper.children;
+
+  for (let i = 0; i < projectItems.length; i++) {
+    const category = projectItems[i].children[1].children[2].value;
+    if (categoryName === category) {
+      projectItems[i].children[1].children[2].value = "";
+    }
+  }
+
+  $("#categoryfilter").val("");
+  filterItems("");
+}
 
 // Make the data of Item in the list
 function makeListItem(item) {
@@ -60,6 +104,19 @@ function makeListItem(item) {
   unorderedList.insertAdjacentHTML("afterbegin", listItem);
 }
 
+function addCategoryToDatalist(categoryname) {
+  // Check if the category already exits
+  // If it exists, then just return;
+  const catItems = $("#cats").children();
+
+  for (let index = 0; index < catItems.length; index++) {
+    if (catItems[index].value === categoryname) {
+      return;
+    }
+  }
+
+  $("#cats").append(`<option value="${categoryname}">`);
+}
 // Ajax Request
 document.querySelector("#itemform").addEventListener("submit", function(e) {
   e.preventDefault();
@@ -85,7 +142,8 @@ document.querySelector("#itemform").addEventListener("submit", function(e) {
       response.json().then(res => {
         if (response.status == 200) {
           makeListItem(res.item);
-        } else alert(err);
+          addCategoryToDatalist(newItem.category);
+        }
       });
     })
     .catch(err => {
@@ -94,7 +152,6 @@ document.querySelector("#itemform").addEventListener("submit", function(e) {
 });
 
 // Button Click Functions
-
 $(function() {
   // Move It In Button
   $("#moveitin").click(function() {
@@ -166,12 +223,6 @@ $(function() {
       });
   });
 
-  // // Save Button for Item
-  // $("button.save").click(function(e) {
-  //   $(this).parent(".text-wrapper").removeClass('pointerevents');
-  //   $(this).siblings("input.color").fadeOut();
-  //   $(this).fadeOut();
-  // })
   // Delete Button for Item
   $("body").on("click", "button.delete", function(e) {
     fetch(`http://localhost:8008/item/${e.target.getAttribute("data-id")}`, {

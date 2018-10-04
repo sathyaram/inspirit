@@ -3,6 +3,10 @@ const app = express()
 const parser = require('body-parser')
 const passport = require('passport')
 
+// routes
+const itemRoutes = require('./routes/item');
+const categoryRoutes = require('./routes/category');
+
 app.set('view engine', 'hbs')
 app.use(parser.urlencoded({ extended: true }));
 app.use(parser.json());
@@ -16,6 +20,7 @@ app.use(express.static(__dirname + '/public'));
 // app.use(passport.session())
 
 // Registering configured route
-app.use(require("./routes/index.js"));
+app.use(itemRoutes);
+app.use(categoryRoutes);
 
 app.listen(8008, () => console.log("Im working"));

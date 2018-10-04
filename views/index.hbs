@@ -8,11 +8,6 @@
             <input class="title" type="text" value="{{ title }}">
             <input class="link" type="text" value="{{ link }}">
             <input class="category" type="text" list="cats" value="{{ category }}">
-                    <datalist id="cats">
-                        {{#each categories }}
-                            <option value="{{ name }}">
-                        {{/each}}
-                    </datalist>
             <textarea class="desc" type="text" value="">{{ description }}</textarea>
             <input class="color" type="color" name="colorpicker" value="{{ color }}">
             <button type="submit" type="text" class="save" data-id="{{ id }}">Save</button>

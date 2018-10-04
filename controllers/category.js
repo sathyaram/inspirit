@@ -11,8 +11,10 @@ module.exports = {
       
   },
   delete: (req, res) => {
-    Item.findOneAndDelete({ _id: req.params.id }).then(item => {
-        res.status(200).end();
+    Category.findOneAndDelete({ name: req.params.name }).then(item => {
+      Item.updateMany({ category: req.params.name }, { $set: { category: "" } } ).then(result => {  
+        res.json({}).status(200);
+      })
     });
   }
 };
