@@ -582,7 +582,7 @@ input#categoryfilter {
   font-size: 15px;
   flex-grow: 2;
   font-family: "Work Sans" !important;
-
+  transition: all 300ms ease;
 }
 
 #deletecategory {
