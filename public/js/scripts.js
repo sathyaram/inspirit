@@ -88,7 +88,7 @@ function makeListItem(item) {
           <div class="text-wrapper">
             <input class="title" value="${item.title}">
             <input class="link" value="${item.link}">
-            <input class="category" value="${item.category}">
+            <input class="category" type="text" list="cats" value="${item.category}">
             <textarea class="desc" value="">${item.description}</textarea>
             <input class="color" type="color" name="colorpicker" value="${item.color}">
             <button type="submit" class="save" data-id="${item._id}">Save</button>
