@@ -193,15 +193,16 @@ header {
 }
 
 main {
-  margin-left: 50vw;
-  width: 50vw;
+  margin-left: 50%;
+  width: 50%;
   height: 100%;
+  position:relative;
   transition: all 300ms ease;
 }
 
 .nav-open main {
   margin-left: 80px;
-  width: calc(100vw - 80px);
+  width: calc(100% - 80px);
 }
 
 h1 {
@@ -222,6 +223,7 @@ ul {
   display:flex;
   flex-direction:row;
   flex-wrap:wrap;
+  margin-top:38px;
 }
 
 .controls {
@@ -378,7 +380,7 @@ h3 {
 .top-text,
 .categorycolor {
   overflow: auto;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 #linkfield,
@@ -399,46 +401,60 @@ form#itemform input[type="text"] {
   height: 40px;
   padding: 10px 15px;
   font-size: 16px;
-  border: 1px solid paleturquoise;
-  width: 100%;
+  border: none;
+  border-left: 1px solid paleturquoise;
+  border-bottom: 1px solid paleturquoise;
   background: transparent;
   border-radius: 10px;
   color: white;
   font-family: "Work Sans" !important;
 }
 
-::-webkit-input-placeholder {
+form#itemform input::-webkit-input-placeholder,
+form#itemform textarea::-webkit-input-placeholder {
   /* Chrome */
   color: paleturquoise;
 }
-:-ms-input-placeholder {
+form#itemform input:-ms-input-placeholder,
+form#itemform textarea:-ms-input-placeholder {
   /* IE 10+ */
   color: paleturquoise;
 }
-::-moz-placeholder {
+form#itemform input::-moz-placeholder,
+form#itemform textarea::-moz-placeholder {
   /* Firefox 19+ */
   color: paleturquoise;
   opacity: 1;
 }
-:-moz-placeholder {
+form#itemform input:-moz-placeholder,
+form#itemform textarea:-moz-placeholder {
   /* Firefox 4 - 18 */
   color: paleturquoise;
   opacity: 1;
 }
 
+input#categoryfield {
+  float:left;
+  width: calc(100% - 60px);
+}
+
 input#colorpicker {
-  padding: 7px 15px;
+  padding: 5px 12px;
   background: none;
   height: 40px;
-  width: 63px;
+  width: 55px;
   margin-left: 5px;
   border-radius: 10px;
-  border: 1px solid paleturquoise;
+  border: none;
+  border-left: 1px solid paleturquoise;
+  border-bottom: 1px solid paleturquoise;
   cursor: pointer;
 }
 
 textarea#descriptionfield {
-  border: 1px solid paleturquoise;
+  border: none;
+  border-left: 1px solid paleturquoise;
+  border-bottom: 1px solid paleturquoise;
   width: 100%;
   height: 100px;
   margin-top: 10px;
@@ -506,6 +522,35 @@ input.color {
   left: 10px;
   padding: 0 12px;
   background: white;
+}
+
+#filter {
+  padding:0;
+  background:#0089e4;
+  display: flex;
+  align-items: center;
+  position:fixed;
+  top:0;
+  right:0;
+  width:50%;
+  z-index:15;
+}
+
+input#categoryfilter {
+  border: none;
+  margin: 0;
+  padding:10px;
+  font-size: 15px;
+  flex-grow: 2;
+  font-family: "Work Sans" !important;
+
+}
+
+#deletecategory {
+  border: none;
+  height: 38px;
+  background: lightskyblue;
+  font-family: "Work Sans" !important;
 }
 
 /*----Media Queries----*/

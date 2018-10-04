@@ -7,10 +7,6 @@ const Item = new Schema({
     category: String,
     description: String,
     color: String,
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: "User"
-    },
 })
 
 module.exports = {
