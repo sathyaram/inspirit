@@ -402,6 +402,14 @@ h3 {
   float: left;
 }
 
+.title, .link, .desc {
+  min-width: 400px;
+}
+
+input::-webkit-calendar-picker-indicator {
+  opacity: 100%;
+}
+
 form#itemform input[type="text"] {
   height: 40px;
   padding: 10px 15px;
