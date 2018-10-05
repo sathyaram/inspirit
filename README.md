@@ -6,6 +6,9 @@ This is Inpir.it, a web application for internet inspiration! Have you ever brow
 
 The idea for this tool came out of a need: I wanted a visual way to browse through all the amazing websites I’ve found without putting them in a boring, text based, Excel spreadsheet. The application uses fetch/ajax to instantly add the content, jQuery/JS for the animations and Express/Handlebars to stand it up and glue it all together.
 
+![inspirit-ss1](https://github.com/sathyaram/inspirit/blob/master/public/images/inspirit-ss1.png) "Inspirit Screenshot 1"
+
+![inspirit-ss2](https://github.com/sathyaram/inspirit/blob/master/public/images/inspirit-ss2.png) "Inspirit Screenshot 2"
 
 ### Features
 - Create Projects with Title, Link, Category, Description and a Color
@@ -57,5 +60,5 @@ Nice to Have - User is able to categorize/search/by tag for items in grid
     - Name
 
 ### Tutorial Video
-A Intro to Inspir.it
+A Intro to Inspir.it -
 https://youtu.be/32rwzymxIl4
