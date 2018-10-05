@@ -1,18 +1,24 @@
 # inspirit
-A Web inspiration visual application
+A Web inspiration visual application.
 
 ## Overview
-A place to save the cool websites you find on the web. Users experience an interface where they can save their interesting links/sites that they find on the web, keep detailed notes and tags on these links, and have a visual medium to browse them on.
+This is Inpir.it, a web application for internet inspiration! Have you ever browsed the web and wanted to save all the cool websites you come across in a way you’ll remember? That’s what Inspir.it is all about - a visual medium that stores website links, names, descriptions and an associated category and color. All you have to do is fill out a form, conveniently placed on the frontpage, hit submit, and your website and color selection will dynamically appear in a grid that you can scroll through! I believe the association of color with the creation of the website item will actually help you remember it better. 
+
+The idea for this tool came out of a need: I wanted a visual way to browse through all the amazing websites I’ve found without putting them in a boring, text based, Excel spreadsheet. The application uses fetch/ajax to instantly add the content, jQuery/JS for the animations and Express/Handlebars to stand it up and glue it all together.
+
 
 ### Features
-- Projects can be tagged, with multiple tags
-- Projects can be categorized
+- Create Projects with Title, Link, Category, Description and a Color
+- Projects can be filtered by Categories
+- Application is responsive and usable on mobile
+- All fields on Projects can be edited, including color
+- All content that is created/saved shows up immediately, without page refresh
 
 ### Routes
 - Path: / - Method: GET - Action: #index - Desc: Shows All Grid Items for User
 - Path: /item/new - Method: GET - Action: #new - Desc: Get Form to Create Grid Item
 - Path: /item - Method: POST - Action: #create - Desc: Create new item in DB
-- Path: /item/:id - Method: PATCH/PUT - Action: #update - Desc: Update data for Item
+- Path: /item/:id - Method: PUT - Action: #update - Desc: Update data for Item
 - Path: /item/:id - Method: DELETE - Action: #delete - Desc: Delete data for item
  
 ### Technologies
@@ -24,7 +30,7 @@ A place to save the cool websites you find on the web. Users experience an inter
 - Handlebars
 - Body Parser
 - Node
-- OAuth
+- Fetch
 
 ### User Story
 1. User enters website, sees splash page
@@ -41,18 +47,15 @@ A place to save the cool websites you find on the web. Users experience an inter
 Nice to Have - User is able to categorize/search/by tag for items in grid
 
 ### Schemas
-- User
-    - Username
-    - Email
-    - [Item]
 - Item
     - Title
     - Website Link
     - Tags
     - Description
     - Color (RGB) (Use HTML5 Color Picker)
-    - User
 - Groupings
     - Name
-    - User
-    - Item
+
+### Tutorial Video
+A Intro to Inspir.it
+https://youtu.be/32rwzymxIl4
