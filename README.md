@@ -1,5 +1,5 @@
 # inspirit
-A Web inspiration visual application.
+A Web inspiration application.
 
 ## Overview
 This is Inpir.it, a web application for internet inspiration! Have you ever browsed the web and wanted to save all the cool websites you come across in a way you’ll remember? That’s what Inspir.it is all about - a visual medium that stores website links, names, descriptions and an associated category and color. All you have to do is fill out a form, conveniently placed on the frontpage, hit submit, and your website and color selection will dynamically appear in a grid that you can scroll through! I believe the association of color with the creation of the website item will actually help you remember it better. 
